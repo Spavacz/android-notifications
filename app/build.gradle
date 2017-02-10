@@ -24,16 +24,3 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.0.1'
     testCompile 'junit:junit:4.12'
 }
-
-task deleteJar(type: Delete) {
-    delete 'release/android_notifications.jar'
-}
-
-task exportJar(type: Copy) {
-    from('build/intermediates/bundles/release/')
-    into('release/')
-    include('classes.jar')
-    rename('classes.jar', 'android_notifications.jar')
-}
-
-exportJar.dependsOn(deleteJar, build);
